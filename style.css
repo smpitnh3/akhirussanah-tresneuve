@@ -1,0 +1,4966 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Cormorant+Garamond:wght@500;600;700&family=Lora:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Special+Elite&display=swap");
+
+/* =========================================================
+   AKHIRUSSANAH INVITATION CSS
+   Struktur: default/desktop -> desktop khusus -> tablet -> mobile -> mobile tinggi layar khusus
+========================================================= */
+
+/* =========================
+   Base / Reset
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Lora", serif;
+  background: #f8f1df;
+  color: #173c2a;
+}
+
+body.modal-open {
+  height: 100svh;
+  overflow: hidden;
+}
+
+body.student-modal-open {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =========================
+   Typography
+========================= */
+
+.guest-label,
+.intro-text,
+.school-name,
+.main-button,
+.secondary-button,
+.section-heading p,
+.peak-content p,
+.closing-content p,
+.timeline-item p,
+.achievement-content p,
+.message-card p,
+.doa-form input,
+.doa-form textarea,
+th,
+td {
+  font-family: "Lora", serif;
+}
+
+#guestName,
+.cover-content h2,
+.section-heading h2,
+.peak-content h2,
+.closing-content h2,
+.achievement-content h2,
+.student-modal-header h3,
+.message-card h3,
+.flow-narration h2,
+.flow-story-text h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.56),
+    0 3px 16px rgba(255, 248, 236, 0.95) !important;
+}
+
+/* =========================
+   Global Section
+========================= */
+
+.section {
+  position: relative;
+  min-height: 100svh;
+  padding: 80px 24px;
+  overflow: hidden;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.section-number {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #b98b2f;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.main-button,
+.secondary-button {
+  display: inline-block;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.main-button {
+  background: #0f5132;
+  color: #fff;
+  position: relative;
+  z-index: 50 !important;
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 205px;
+  padding: 14px 30px;
+  margin-top: 0;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0f6841, #0a4d31);
+  font-size: clamp(15px, 1.9vw, 17px);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(13, 90, 57, 0.3);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.main-button:hover {
+  background: #0b3d25;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(13, 90, 57, 0.36);
+}
+
+.secondary-button {
+  background: #d8b45f;
+  color: #173c2a;
+}
+
+.secondary-button:hover {
+  background: #c79d39;
+  transform: translateY(-2px);
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.main-button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   Cover Modal
+========================= */
+/* =========================
+   FALLING CELEBRATION
+   Confetti + Gold Streamer
+========================= */
+
+.falling-celebration {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Confetti kotak emas/ivory */
+.confetti {
+  position: absolute;
+  top: -40px;
+  display: block;
+  width: 10px;
+  height: 18px;
+  border-radius: 2px;
+  opacity: 0.82;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+  will-change: transform, margin-left, opacity;
+
+  animation:
+    confetti-fall 10s linear forwards,
+    drift-left 10s ease-in-out forwards;
+}
+
+.confetti.gold {
+  background: linear-gradient(180deg, #f6df9a 0%, #c89b2f 100%);
+}
+
+.confetti.soft-gold {
+  background: linear-gradient(180deg, #f1d48a 0%, #b78622 100%);
+}
+
+.confetti.ivory {
+  background: linear-gradient(180deg, #fff8ec 0%, #eadbb8 100%);
+}
+
+.confetti.drift-right {
+  animation-name: confetti-fall, drift-right;
+}
+
+.confetti.drift-left {
+  animation-name: confetti-fall, drift-left;
+}
+
+/* Pita spiral emas */
+.streamer {
+  position: absolute;
+  top: -220px;
+  display: block;
+  width: 22px;
+  height: 105px;
+  opacity: 0.9;
+  pointer-events: none;
+  background: url("assets/gold-streamer.png") center / contain no-repeat;
+  will-change: transform, margin-left, opacity;
+
+  animation:
+    streamer-fall 11s linear forwards,
+    drift-left 11s ease-in-out forwards;
+}
+
+.streamer.drift-right {
+  animation-name: streamer-fall, drift-right;
+}
+
+.streamer.drift-left {
+  animation-name: streamer-fall, drift-left;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg) scaleX(1);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.86;
+  }
+
+  45% {
+    transform: translateY(45vh) rotate(150deg) scaleX(0.72);
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(320deg) scaleX(1);
+    opacity: 0.12;
+  }
+}
+
+@keyframes streamer-fall {
+  0% {
+    transform: translateY(0) rotate(-6deg);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translateY(50vh) rotate(8deg);
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(-10deg);
+    opacity: 0.08;
+  }
+}
+
+@keyframes drift-left {
+  0% {
+    margin-left: 0;
+  }
+
+  50% {
+    margin-left: -28px;
+  }
+
+  100% {
+    margin-left: -60px;
+  }
+}
+
+@keyframes drift-right {
+  0% {
+    margin-left: 0;
+  }
+
+  50% {
+    margin-left: 28px;
+  }
+
+  100% {
+    margin-left: 60px;
+  }
+}
+/* sampai sini confettinya */
+
+.cover-modal {
+  position: fixed;
+  inset: 0;
+  isolation: isolate;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  padding: clamp(18px, 3vw, 34px);
+  text-align: center;
+  background:
+    linear-gradient(rgba(248, 241, 223, 0.26), rgba(248, 241, 223, 0.52)),
+    url("assets/hero-toga.png") center / cover no-repeat;
+  transition:
+    opacity 0.75s ease,
+    visibility 0.75s ease,
+    transform 0.75s ease;
+}
+
+.cover-content::before {
+  width: min(760px, 110vw) !important;
+  height: min(520px, 76vh) !important;
+  border-radius: 999px !important;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(7, 6, 4, 0.54) 0%,
+    rgba(7, 6, 4, 0.42) 34%,
+    rgba(216, 180, 95, 0.1) 58%,
+    rgba(7, 6, 4, 0) 100%
+  ) !important;
+  filter: blur(22px) !important;
+}
+
+.cover-modal::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 250, 241, 0.04) 0%,
+      rgba(255, 250, 241, 0.18) 18%,
+      rgba(255, 250, 241, 0.36) 34%,
+      rgba(255, 250, 241, 0.48) 50%,
+      rgba(255, 250, 241, 0.36) 66%,
+      rgba(255, 250, 241, 0.18) 82%,
+      rgba(255, 250, 241, 0.04) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 250, 241, 0.1) 0%,
+      rgba(255, 250, 241, 0.34) 14%,
+      rgba(255, 250, 241, 0.58) 34%,
+      rgba(255, 250, 241, 0.58) 50%,
+      rgba(255, 250, 241, 0.58) 66%,
+      rgba(255, 250, 241, 0.34) 86%,
+      rgba(255, 250, 241, 0.1) 100%
+    );
+}
+
+.cover-modal.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.03);
+}
+
+.cover-ornament {
+  position: absolute;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  user-select: none;
+  opacity: 0.97;
+  animation: coverFloat 6s ease-in-out infinite;
+}
+
+.cover-curtain-top {
+  position: absolute;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  user-select: none;
+  opacity: 0.97;
+  animation: coverFloat 6s ease-in-out infinite;
+}
+
+.ornament-top-left {
+  top: -60px !important;
+  left: -60px !important;
+  width: clamp(330px, 25vw, 440px) !important;
+}
+
+.ornament-top-right {
+  top: -60px !important;
+  right: -60px !important;
+  width: clamp(330px, 25vw, 440px) !important;
+  animation-delay: 0.6s;
+}
+
+.ornament-bottom-left {
+  bottom: -220px !important;
+  left: 100px !important;
+  width: clamp(260px, 18vw, 330px) !important;
+  animation-delay: 1s;
+}
+
+.ornament-bottom-right {
+  bottom: -220px !important;
+  right: 100px !important;
+  width: clamp(260px, 18vw, 330px) !important;
+  animation-delay: 1.4s;
+}
+
+/* =========================================================
+   SIDE ORNAMENT - AKSEN VERTIKAL TENGAH
+========================================================= */
+.cover-side-ornament {
+  display: none !important;
+}
+/* ========================================================= */
+
+.cover-content {
+  position: relative;
+  z-index: 10 !important;
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.cover-content::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1 !important;
+  width: 100vw;
+  height: min(430px, 60vh);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 251, 242, 0) 0%,
+      rgba(255, 251, 242, 0.24) 10%,
+      rgba(255, 251, 242, 0.62) 24%,
+      rgba(255, 251, 242, 0.86) 50%,
+      rgba(255, 251, 242, 0.62) 76%,
+      rgba(255, 251, 242, 0.24) 90%,
+      rgba(255, 251, 242, 0) 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 251, 242, 0.3) 0%,
+      rgba(255, 251, 242, 0.1) 48%,
+      rgba(255, 251, 242, 0) 78%
+    );
+  filter: blur(18px);
+}
+
+.cover-content::after {
+  content: none !important;
+  display: none !important;
+}
+
+.cover-inner {
+  position: relative;
+  z-index: 20 !important;
+  width: min(720px, 92vw) !important;
+  padding: 4px 20px 8px;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  transform: translateY(-10px) !important;
+}
+
+.cover-inner::before,
+.cover-inner::after {
+  content: none !important;
+  display: none !important;
+}
+
+.cover-image {
+  position: relative;
+  z-index: 30 !important;
+  width: clamp(72px, 8vw, 92px);
+  height: clamp(72px, 8vw, 92px);
+  margin: 0 auto 18px;
+  padding: 6px;
+  border: 3px solid rgba(193, 158, 84, 0.54);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  object-fit: cover;
+  box-shadow: 0 10px 24px rgba(98, 76, 29, 0.1);
+}
+
+.guest-label {
+  position: relative;
+  z-index: 30 !important;
+  margin-bottom: 6px;
+  color: #9a7331;
+  font-size: clamp(14px, 1.35vw, 17px);
+  font-weight: 500;
+  line-height: 1.35;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.58),
+    0 2px 12px rgba(255, 248, 236, 0.92) !important;
+}
+
+#guestName {
+  position: relative;
+  z-index: 30 !important;
+  margin-bottom: 10px;
+  color: #123524;
+  font-size: clamp(28px, 4.6vw, 52px);
+  line-height: 1.06;
+  font-weight: 500;
+  text-shadow: 0 2px 12px rgba(255, 248, 236, 0.58);
+  white-space: pre-line;
+}
+
+.intro-text {
+  position: relative;
+  z-index: 30 !important;
+  max-width: 560px;
+  margin: 0 auto 8px;
+  color: #314336;
+  font-size: clamp(15px, 1.9vw, 19px);
+  line-height: 1.6;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.58),
+    0 2px 12px rgba(255, 248, 236, 0.92) !important;
+}
+
+.cover-content h2 {
+  position: relative;
+  z-index: 30 !important;
+  margin-bottom: 4px;
+  color: #0f5a39;
+  font-size: clamp(38px, 5.8vw, 66px);
+  line-height: 1.03;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.58),
+    0 2px 12px rgba(255, 248, 236, 0.92) !important;
+}
+
+.school-name {
+  position: relative;
+  z-index: 30 !important;
+  margin-bottom: 12px;
+  color: #9a7331;
+  font-size: clamp(21px, 2.6vw, 29px);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.58),
+    0 2px 12px rgba(255, 248, 236, 0.92) !important;
+}
+
+/* =========================================================
+   AKHIRUSSANAH THEME - COVER OVERRIDE
+   Tahap 1: Mengubah cover lama menjadi hitam-emas elegan
+========================================================= */
+
+:root {
+  --akh-black: #070604;
+  --akh-dark: #17100a;
+  --akh-brown: #2a1a10;
+  --akh-gold: #d8b45f;
+  --akh-gold-light: #f3d98b;
+  --akh-gold-dark: #9d7428;
+  --akh-cream: #f8f1df;
+}
+
+.cover-modal {
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(243, 217, 139, 0.16) 0%,
+      rgba(216, 180, 95, 0.06) 28%,
+      rgba(7, 6, 4, 0) 58%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(7, 6, 4, 0.96),
+      rgba(23, 16, 10, 0.86),
+      rgba(7, 6, 4, 0.96)
+    ),
+    url("assets/hero-toga.png") center / cover no-repeat;
+}
+
+.cover-modal::after {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 6, 4, 0.72) 0%,
+      rgba(7, 6, 4, 0.24) 32%,
+      rgba(216, 180, 95, 0.08) 50%,
+      rgba(7, 6, 4, 0.3) 68%,
+      rgba(7, 6, 4, 0.78) 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(243, 217, 139, 0.16) 0%,
+      rgba(216, 180, 95, 0.08) 28%,
+      rgba(7, 6, 4, 0) 66%
+    ) !important;
+}
+
+.cover-content::before {
+  width: min(860px, 120vw) !important;
+  height: min(620px, 82vh) !important;
+  border-radius: 999px !important;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 239, 178, 0.22) 0%,
+    rgba(216, 180, 95, 0.12) 28%,
+    rgba(7, 6, 4, 0.04) 58%,
+    rgba(7, 6, 4, 0) 100%
+  ) !important;
+  filter: blur(18px) !important;
+}
+
+.cover-inner {
+  padding: 0 20px 8px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.cover-inner::before {
+  content: none !important;
+  display: none !important;
+}
+
+.cover-image {
+  border-color: rgba(216, 180, 95, 0.8) !important;
+  background: rgba(248, 241, 223, 0.92) !important;
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.26),
+    0 0 0 6px rgba(216, 180, 95, 0.08) !important;
+}
+
+.guest-label,
+.intro-text {
+  color: rgba(248, 241, 223, 0.86) !important;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.55) !important;
+}
+
+#guestName {
+  color: var(--akh-cream) !important;
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.36),
+    0 8px 28px rgba(0, 0, 0, 0.68) !important;
+}
+
+.event-kicker {
+  position: relative;
+  z-index: 30;
+  margin-top: 15px;
+  margin-bottom: -15px;
+  color: #fff1bf;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(28px, 9vw, 40px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.3px;
+  text-transform: none;
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.72),
+    0 8px 22px rgba(0, 0, 0, 0.95),
+    0 0 16px rgba(216, 180, 95, 0.32);
+}
+
+.cover-content h2 {
+  color: var(--akh-gold-light) !important;
+  font-size: clamp(44px, 6.6vw, 78px) !important;
+  text-shadow:
+    0 2px 0 rgba(92, 60, 18, 0.8),
+    0 10px 34px rgba(0, 0, 0, 0.7),
+    0 0 18px rgba(216, 180, 95, 0.26) !important;
+}
+
+.school-name {
+  color: var(--akh-cream) !important;
+  margin-bottom: 4px !important;
+  text-shadow: 0 5px 22px rgba(0, 0, 0, 0.68) !important;
+}
+
+.event-year {
+  position: relative;
+  z-index: 30;
+  margin-bottom: 22px;
+  color: rgba(243, 217, 139, 0.88);
+  font-family: "Lora", serif;
+  font-size: clamp(13px, 1.5vw, 16px);
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+.main-button {
+  background: linear-gradient(
+    135deg,
+    var(--akh-gold-light),
+    var(--akh-gold),
+    var(--akh-gold-dark)
+  ) !important;
+  color: var(--akh-black) !important;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.32),
+    0 0 0 4px rgba(216, 180, 95, 0.12) !important;
+}
+
+.main-button:hover {
+  background: linear-gradient(
+    135deg,
+    #ffe8a4,
+    var(--akh-gold),
+    #b9892f
+  ) !important;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.38),
+    0 0 0 5px rgba(216, 180, 95, 0.16) !important;
+}
+
+/* =========================
+   Story Flow Section
+========================= */
+
+.story-flow-section {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  height: 100svh;
+  padding: 0;
+  overflow: hidden;
+  background: #061911;
+  color: #332414;
+}
+
+.story-flow-scene {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: #061911;
+}
+
+/* =========================
+   Memory Book Opening Scene
+   Desktop: gambar full, teks tepat di cover
+========================= */
+
+.memory-book-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  overflow: hidden;
+  background: #070604;
+}
+
+.book-ambient-glow {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 2;
+  width: min(760px, 70vw);
+  height: min(520px, 58vh);
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(243, 217, 139, 0.16) 0%,
+    rgba(216, 180, 95, 0.08) 36%,
+    rgba(7, 6, 4, 0) 72%
+  );
+  filter: blur(20px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.memory-book-shell {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+}
+
+.memory-book-shell::after {
+  content: none;
+  display: none;
+}
+
+.memory-book-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(0.92) saturate(1.04) contrast(1.04);
+  user-select: none;
+  pointer-events: none;
+}
+
+.memory-book-intro {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 4;
+  width: 360px;
+  height: 390px;
+  text-align: center;
+  color: #f8f1df;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+/* HAFLAH AKHIRUSSANAH */
+.memory-book-intro .section-number {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  display: block;
+  width: 100%;
+  margin: 0;
+  color: rgba(243, 217, 139, 0.88);
+  font-family: "Lora", serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.9),
+    0 6px 16px rgba(0, 0, 0, 0.9);
+}
+
+/* SVG ORNAMENT */
+.memory-title-ornament {
+  position: absolute;
+  left: 50%;
+  display: block;
+  width: 185px;
+  margin: 0;
+  opacity: 0.9;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.65))
+    drop-shadow(0 0 7px rgba(216, 180, 90, 0.14));
+}
+
+.memory-title-ornament img,
+.memory-title-ornament svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Ornament atas */
+.memory-title-ornament-top {
+  top: 84px;
+}
+
+/* Ornament bawah */
+.memory-title-ornament-bottom {
+  top: 232px;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+/* JUDUL UTAMA */
+.memory-book-intro h2 {
+  position: absolute;
+  left: 50%;
+  top: 188px;
+  width: 100%;
+  max-width: 340px;
+  margin: 0;
+  color: #f3d98b;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(31px, 3vw, 42px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 3.4px;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  text-shadow:
+    0 1px 0 rgba(76, 45, 10, 0.95),
+    0 8px 22px rgba(0, 0, 0, 0.95),
+    0 0 12px rgba(216, 180, 95, 0.22);
+}
+
+/* GRUP BAWAH */
+.memory-book-meta {
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 100%;
+  transform: translateX(-50%);
+}
+
+/* SMPIT NUR HIKMAH */
+.memory-book-intro p {
+  margin: 0 0 10px;
+  color: rgba(255, 247, 223, 0.78);
+  font-family: "Lora", serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.75),
+    0 6px 16px rgba(0, 0, 0, 0.88);
+}
+
+/* SCROLL HINT */
+.memory-book-hint {
+  display: block;
+  color: rgba(255, 247, 223, 0.52);
+  font-family: "Lora", serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  line-height: 1.6;
+  text-transform: uppercase;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.78),
+    0 5px 12px rgba(0, 0, 0, 0.9);
+}
+/* =========================
+   sampai sini
+========================= */
+
+.flow-door-light {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: brightness(0.96) saturate(0.98);
+  transform: scale(1);
+  will-change: transform, opacity, filter;
+}
+
+.flow-door-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 239, 188, 0.42) 0%,
+    rgba(255, 239, 188, 0.18) 30%,
+    rgba(255, 248, 232, 0.08) 58%,
+    rgba(243, 234, 216, 0.1) 100%
+  );
+  will-change: opacity;
+}
+
+.flow-door {
+  position: absolute;
+  top: -10%;
+  z-index: 4;
+  width: 50.5%;
+  height: 120%;
+  object-fit: cover;
+  filter: brightness(0.92);
+  will-change: transform;
+}
+
+.flow-door-left {
+  left: 0;
+  transform-origin: left center;
+}
+
+.flow-door-right {
+  right: 0;
+  transform-origin: right center;
+}
+
+.flow-narration {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 7;
+  width: min(980px, calc(100% - 48px));
+  text-align: center;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  color: #332414;
+  pointer-events: none;
+}
+
+.flow-narration .section-number {
+  color: #9a7108;
+  font-family: "Lora", serif;
+  font-size: clamp(13px, 1.6vw, 17px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(255, 248, 232, 0.35);
+}
+
+.flow-narration h2 {
+  max-width: 900px;
+  margin: 0 auto 18px;
+  color: #332414;
+  font-size: clamp(40px, 6.2vw, 76px);
+  line-height: 1.04;
+  text-shadow: 0 2px 10px rgba(255, 250, 240, 0.35);
+}
+
+.flow-narration p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #3b352b;
+  font-size: clamp(16px, 1.7vw, 20px);
+  line-height: 1.75;
+  text-shadow: 0 1px 6px rgba(255, 250, 240, 0.28);
+}
+
+.flow-transition-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(248, 241, 223, 0.82) 0%,
+    rgba(248, 241, 223, 0.54) 38%,
+    rgba(248, 241, 223, 0.18) 72%,
+    rgba(248, 241, 223, 0) 100%
+  );
+  backdrop-filter: blur(3px);
+  will-change: opacity;
+}
+
+.flow-story-track {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  width: max-content;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.flow-story-panel {
+  position: relative;
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  background: #f8f1df;
+}
+
+.flow-story-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(248, 241, 223, 0.34) 0%,
+    rgba(248, 241, 223, 0.14) 8%,
+    rgba(248, 241, 223, 0) 18%,
+    rgba(248, 241, 223, 0) 82%,
+    rgba(248, 241, 223, 0.14) 92%,
+    rgba(248, 241, 223, 0.34) 100%
+  );
+}
+
+.flow-story-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.flow-story-bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.flow-story-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+  filter: brightness(1.04) saturate(0.98);
+  will-change: transform, filter;
+}
+
+.flow-story-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.flow-story-panel.text-left .flow-story-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(248, 241, 223, 0.95) 0%,
+    rgba(248, 241, 223, 0.82) 28%,
+    rgba(248, 241, 223, 0.44) 54%,
+    rgba(248, 241, 223, 0.14) 78%,
+    rgba(248, 241, 223, 0.04) 100%
+  );
+}
+
+.flow-story-panel.text-right .flow-story-overlay {
+  background: linear-gradient(
+    270deg,
+    rgba(248, 241, 223, 0.95) 0%,
+    rgba(248, 241, 223, 0.82) 28%,
+    rgba(248, 241, 223, 0.44) 54%,
+    rgba(248, 241, 223, 0.14) 78%,
+    rgba(248, 241, 223, 0.04) 100%
+  );
+}
+
+.flow-story-text {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: min(500px, 38vw);
+  transform: translateY(-50%);
+  color: #332414;
+  will-change: transform, opacity;
+}
+
+.flow-story-panel.text-left .flow-story-text {
+  left: clamp(40px, 8vw, 120px);
+}
+
+.flow-story-panel.text-right .flow-story-text {
+  right: clamp(40px, 8vw, 120px);
+}
+
+.flow-story-text .section-number {
+  color: #9a7108;
+  font-family: "Lora", serif;
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.flow-story-text h2 {
+  margin-bottom: 16px;
+  color: #332414;
+  font-size: clamp(44px, 5.6vw, 82px);
+  line-height: 0.98;
+}
+
+.flow-story-text p {
+  max-width: 480px;
+  color: #3b352b;
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.8;
+}
+
+/* =========================================================
+   Activity Journal Scene - Default / Desktop
+   Dipakai untuk semua panel kegiatan:
+   MPLS, LDKS, Quran Camp, MABIT, dst.
+
+   Catatan:
+   - Style utama TIDAK dikunci ke .activity-mpls.
+   - Semua panel kegiatan cukup memakai .memory-activity-panel.
+   - Class .activity-mpls, .activity-ldks, dst. hanya untuk pengecualian kecil.
+========================================================= */
+
+.memory-activity-panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(216, 180, 95, 0.16),
+      transparent 38%
+    ),
+    linear-gradient(180deg, #1d1209 0%, #0b0805 100%);
+}
+
+/* Elemen bantuan agar JS yang mencari .flow-story-bg img tetap aman. */
+.activity-bg-helper,
+.activity-bg-helper img {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Override .flow-story-text umum agar layout jurnal menjadi full-screen. */
+.memory-activity-panel .activity-journal-page.flow-story-text {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  transform: none;
+  color: #2f261d;
+}
+
+/* Kanvas kertas jurnal. */
+.activity-journal-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  color: #2f261d;
+  background:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(255, 249, 226, 0.56),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 82% 48%,
+      rgba(190, 152, 74, 0.16),
+      transparent 36%
+    ),
+    linear-gradient(180deg, #f2e2b8 0%, #dec792 100%);
+  box-shadow: inset 0 0 90px rgba(78, 50, 18, 0.2);
+}
+
+/* Tekstur halus pada kertas. */
+.activity-paper-texture {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(73, 55, 31, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(73, 55, 31, 0.026) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mix-blend-mode: multiply;
+}
+
+/* Area teks kiri pada desktop. */
+.activity-copy {
+  position: absolute;
+  left: clamp(86px, 8vw, 128px);
+  top: 50%;
+  z-index: 4;
+  width: clamp(360px, 32vw, 510px);
+  transform: translateY(-50%) rotate(-1.5deg);
+}
+
+/* Label chapter seperti potongan kertas kecil ditempel lakban. */
+.activity-chapter {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 10px 20px 8px;
+  color: rgba(58, 45, 31, 0.72);
+  font-family: "Special Elite", monospace;
+  font-size: clamp(12px, 1vw, 15px);
+  line-height: 1;
+  letter-spacing: 1.3px;
+  background: rgba(255, 251, 238, 0.95);
+  box-shadow:
+    0 6px 12px rgba(74, 48, 19, 0.08),
+    inset 0 0 0 1px rgba(77, 55, 26, 0.05);
+  transform: rotate(-4deg);
+}
+
+/* Lakban kecil kiri-kanan pada label chapter. */
+.activity-chapter::before,
+.activity-chapter::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 34px;
+  height: 14px;
+  background: rgba(223, 197, 126, 0.58);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.activity-chapter::before {
+  left: -14px;
+  transform: rotate(-18deg);
+}
+
+.activity-chapter::after {
+  right: -14px;
+  transform: rotate(16deg);
+}
+
+/* Judul utama kegiatan, contoh: MPLS, LDKS, Quran Camp. */
+.memory-activity-panel .activity-copy h2 {
+  margin: -4px 0 20px;
+  color: rgba(34, 29, 23, 0.94);
+  font-family: "Patrick Hand", "Kalam", cursive;
+  font-size: clamp(60px, 5.6vw, 90px);
+  font-weight: 400;
+  line-height: 0.86;
+  letter-spacing: 0.5px;
+  text-shadow: none !important;
+}
+
+/* Subjudul kegiatan. */
+.memory-activity-panel .activity-subtitle {
+  max-width: none;
+  margin: 0 0 24px;
+  color: rgba(42, 34, 26, 0.72);
+  font-family: "Kalam", "Patrick Hand", cursive;
+  font-size: clamp(18px, 1.55vw, 24px);
+  line-height: 1.1;
+  text-shadow: none !important;
+}
+
+/* Narasi pendek kegiatan. */
+.memory-activity-panel .activity-description {
+  max-width: none;
+  margin: 0;
+  color: rgba(39, 32, 24, 0.78);
+  font-family: "Kalam", "Patrick Hand", cursive;
+  font-size: clamp(16px, 1.3vw, 20px);
+  font-weight: 400;
+  line-height: 1.55;
+  text-shadow: none !important;
+}
+
+/* Potongan kertas sobek untuk catatan mesin tik. */
+.activity-mini-note-paper {
+  position: relative;
+  display: inline-block;
+  margin: 24px 0 0;
+  padding: 18px 26px;
+  min-width: 430px;
+  transform: rotate(-1.4deg);
+}
+
+/* Gambar kertas sobek. Pastikan file ada: assets/torn-paper-note.png */
+.activity-mini-note-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: url("assets/torn-paper-note.png") center / 100% 100% no-repeat;
+  filter: drop-shadow(0 7px 14px rgba(79, 52, 22, 0.12));
+  pointer-events: none;
+}
+
+/* Isi teks mesin tik pada kertas sobek. */
+.memory-activity-panel .activity-mini-note {
+  position: relative;
+  z-index: 2;
+  max-width: none;
+  margin: 0;
+  color: rgba(39, 32, 24, 0.72);
+  font-family: "Special Elite", monospace;
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: none !important;
+  transform: translateY(-2px);
+}
+
+/* Lakban kecil di atas note. */
+.mini-note-tape {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  z-index: 3;
+  width: 58px;
+  height: 16px;
+  background: rgba(222, 198, 126, 0.5);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    inset 0 0 1px rgba(255, 255, 255, 0.3);
+  transform: translateX(-50%) rotate(-4deg);
+}
+
+/* Foto utama kanan seperti foto tempel album. */
+.activity-photo-card {
+  position: absolute;
+  right: clamp(72px, 7vw, 116px);
+  top: 50%;
+  z-index: 4;
+  width: clamp(520px, 48vw, 780px);
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  padding: 14px 14px 44px;
+  background: rgba(255, 252, 241, 0.98);
+  box-shadow:
+    0 20px 36px rgba(70, 43, 16, 0.2),
+    0 3px 0 rgba(255, 255, 255, 0.55),
+    inset 0 0 0 1px rgba(90, 67, 35, 0.08);
+  transform: translateY(-50%) rotate(0.7deg);
+}
+
+/* Lakban foto. */
+.photo-tape {
+  position: absolute;
+  top: -10px;
+  z-index: 7;
+  width: 74px;
+  height: 22px;
+  background: rgba(222, 198, 126, 0.52);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    inset 0 0 1px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(0.5px);
+}
+
+.tape-left {
+  left: 36px;
+  transform: rotate(-8deg);
+}
+
+.tape-right {
+  right: 36px;
+  transform: rotate(9deg);
+}
+
+.tape-bottom-right {
+  top: auto;
+  right: -10px;
+  bottom: -5px;
+  width: 76px;
+  height: 22px;
+  opacity: 0.92;
+  transform: rotate(-22deg);
+}
+
+/* Isi foto asli atau placeholder. */
+.activity-photo-card img,
+.activity-photo-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.activity-photo-card img {
+  object-fit: cover;
+  display: block;
+}
+
+.activity-photo-placeholder {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: rgba(42, 34, 24, 0.42);
+  font-family: "Special Elite", monospace;
+  font-size: clamp(13px, 1vw, 17px);
+  line-height: 1.4;
+  background:
+    linear-gradient(135deg, rgba(216, 180, 95, 0.08), rgba(14, 52, 46, 0.04)),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(53, 42, 27, 0.03) 0,
+      rgba(53, 42, 27, 0.03) 7px,
+      transparent 7px,
+      transparent 15px
+    );
+  border: 1px solid rgba(87, 66, 37, 0.1);
+}
+
+/* Caption di bawah foto. */
+.activity-photo-card figcaption {
+  position: absolute;
+  left: 18px;
+  bottom: 12px;
+  color: rgba(39, 32, 24, 0.56);
+  font-family: "Kalam", "Patrick Hand", cursive;
+  font-size: clamp(18px, 1.3vw, 23px);
+  line-height: 1;
+}
+
+/* Antisipasi kalau markup photo-corner lama masih ada. */
+.photo-corner {
+  display: none !important;
+}
+
+/* Panah dan label tulisan tangan di kanan atas foto. */
+.activity-hand-label {
+  position: absolute;
+  right: 180px;
+  top: 58px;
+  width: 220px;
+  height: 120px;
+  z-index: 7;
+  color: rgba(49, 39, 27, 0.82);
+  font-family: "Patrick Hand", "Kalam", cursive;
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+
+.activity-hand-arrow {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 120px;
+  height: 96px;
+  overflow: visible;
+}
+
+.activity-label-text {
+  position: absolute;
+  left: 110px; /* titik mulai teks, jaraknya tetap dari panah */
+  right: auto;
+  top: 10px;
+  width: max-content;
+  max-width: 220px;
+  font-size: clamp(24px, 1.9vw, 30px);
+  line-height: 0.95;
+  letter-spacing: 0.5px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Antisipasi doodle lama agar tidak muncul. */
+.activity-doodle,
+.activity-doodle-star,
+.activity-doodle-note {
+  display: none !important;
+}
+
+/* Hint bawah halaman jurnal. */
+.memory-activity-panel .activity-page-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 8;
+  margin: 0;
+  color: rgba(47, 38, 29, 0.48);
+  font-family: "Special Elite", monospace;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+/* =========================================================
+   Activity Journal - Tablet / Laptop Kecil
+   Ukuran: 769px sampai 1180px
+   Tujuan: mengecilkan teks dan foto agar tidak saling tabrak.
+========================================================= */
+
+@media (max-width: 1180px) and (min-width: 769px) {
+  .activity-copy {
+    left: clamp(36px, 5vw, 72px);
+    width: clamp(300px, 34vw, 410px);
+  }
+
+  .memory-activity-panel .activity-copy h2 {
+    font-size: clamp(46px, 5vw, 68px);
+  }
+
+  .memory-activity-panel .activity-subtitle {
+    font-size: clamp(19px, 2vw, 27px);
+  }
+
+  .memory-activity-panel .activity-description {
+    font-size: clamp(18px, 1.8vw, 24px);
+    line-height: 1.38;
+  }
+
+  .activity-mini-note-paper {
+    min-width: 0;
+    width: min(390px, 100%);
+  }
+
+  .activity-photo-card {
+    right: clamp(32px, 4vw, 64px);
+    width: clamp(440px, 49vw, 620px);
+    max-width: calc(100vw - 48px);
+  }
+
+  .activity-hand-label {
+    right: 34px;
+    top: 48px;
+    transform: rotate(-3deg) scale(0.88);
+    transform-origin: top right;
+  }
+}
+
+/* =========================================================
+   Activity Journal - Mobile & Tablet Portrait
+   Ukuran: maksimal 768px
+   Tujuan: layout berubah menjadi teks atas -> foto bawah.
+========================================================= */
+
+@media (max-width: 768px) {
+  .memory-activity-panel .activity-journal-page.flow-story-text {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 16px 16px 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    overflow: hidden;
+    transform: none;
+  }
+
+  .memory-activity-panel .activity-paper-texture {
+    opacity: 0.18;
+  }
+
+  .memory-activity-panel .activity-copy {
+    position: relative;
+    left: auto;
+    top: auto;
+    z-index: 4;
+    width: min(100%, 345px);
+    max-width: 345px;
+    flex: 0 0 auto;
+    transform: rotate(-1.2deg);
+  }
+
+  .memory-activity-panel .activity-chapter {
+    margin-bottom: 10px;
+    padding: 8px 15px 7px;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .memory-activity-panel .activity-chapter::before,
+  .memory-activity-panel .activity-chapter::after {
+    top: -7px;
+    width: 28px;
+    height: 12px;
+  }
+
+  .memory-activity-panel .activity-chapter::before {
+    left: -10px;
+  }
+
+  .memory-activity-panel .activity-chapter::after {
+    right: -10px;
+  }
+
+  .memory-activity-panel .activity-copy h2 {
+    margin: 0 0 14px;
+    font-size: clamp(32px, 9.5vw, 42px);
+    line-height: 1.08;
+  }
+
+  .memory-activity-panel .activity-subtitle {
+    margin-bottom: 10px;
+    font-size: clamp(16px, 4.8vw, 21px);
+    line-height: 1.12;
+  }
+
+  .memory-activity-panel .activity-description {
+    max-width: 38ch;
+    font-size: clamp(14px, 4vw, 17px);
+    line-height: 1.32;
+  }
+
+  .memory-activity-panel .activity-mini-note-paper {
+    min-width: 0;
+    width: min(100%, 315px);
+    max-width: 100%;
+    margin-top: 12px;
+    padding: 13px 20px;
+  }
+
+  .memory-activity-panel .activity-mini-note {
+    font-size: 11px;
+    line-height: 1.25;
+    white-space: normal;
+    transform: translateY(-1px);
+  }
+
+  .memory-activity-panel .mini-note-tape {
+    width: 48px;
+    height: 14px;
+    top: -8px;
+  }
+
+  .memory-activity-panel .activity-photo-card {
+    position: relative;
+    right: auto;
+    top: auto;
+    z-index: 4;
+    flex: 0 0 auto;
+    width: min(100%, 345px);
+    max-width: 345px;
+    aspect-ratio: 4 / 3;
+    margin: 6px 0 0;
+    padding: 10px 10px 34px;
+    transform: rotate(0.65deg);
+  }
+
+  .memory-activity-panel .activity-photo-card figcaption {
+    left: 14px;
+    bottom: 10px;
+    font-size: clamp(15px, 4.4vw, 19px);
+  }
+
+  .memory-activity-panel .photo-tape {
+    width: 58px;
+    height: 18px;
+  }
+
+  .memory-activity-panel .tape-left {
+    left: 24px;
+  }
+
+  .memory-activity-panel .tape-right {
+    right: 24px;
+  }
+
+  .memory-activity-panel .tape-bottom-right {
+    width: 58px;
+    height: 18px;
+    right: -6px;
+    bottom: -4px;
+  }
+
+  .memory-activity-panel .activity-hand-label {
+    display: none;
+  }
+
+  .memory-activity-panel .activity-page-hint {
+    bottom: 12px;
+    font-size: 10.5px;
+  }
+}
+
+/* =========================================================
+   Activity Journal - Mobile Kecil
+   Ukuran: maksimal 420px
+   Tujuan: mengamankan iPhone kecil agar teks dan foto tetap masuk layar.
+========================================================= */
+
+@media (max-width: 420px) {
+  .memory-activity-panel .activity-journal-page.flow-story-text {
+    padding: 12px 14px 40px;
+    gap: 16px;
+  }
+
+  .memory-activity-panel .activity-copy {
+    width: min(100%, 315px);
+    max-width: 315px;
+  }
+
+  .memory-activity-panel .activity-copy h2 {
+    font-size: clamp(40px, 12.8vw, 54px);
+  }
+
+  .memory-activity-panel .activity-subtitle {
+    font-size: clamp(15px, 4.6vw, 18px);
+  }
+
+  .memory-activity-panel .activity-description {
+    font-size: clamp(13.5px, 3.9vw, 15.5px);
+    line-height: 1.3;
+  }
+
+  .memory-activity-panel .activity-mini-note-paper {
+    width: min(100%, 290px);
+    margin-top: 10px;
+    padding: 12px 18px;
+  }
+
+  .memory-activity-panel .activity-photo-card {
+    width: min(100%, 305px);
+    max-width: 305px;
+    aspect-ratio: 1.22 / 1;
+    margin-top: 8px;
+  }
+}
+
+.detail-transition-sheet {
+  display: none;
+}
+
+.detail-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #b98b2f;
+  font-family: "Lora", serif;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.closing-signature strong {
+  color: #0f5132;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   PUNCAK ACARA / STAGE REVEAL SECTION
+   Transisi dari album kenangan menuju panggung Akhirussanah
+
+   Struktur visual:
+   1. story-to-stage-bridge = veil transisi dari Story Flow
+   2. peak-bg / stage-bg = background panggung
+   3. peak-overlay = overlay gelap cinematic
+   4. peak-glow = cahaya utama panggung
+   5. stage-content = teks Akhirussanah
+========================================================= */
+
+.peak-section,
+.stage-reveal-section {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  padding: 0;
+  overflow: hidden;
+  background: #070604;
+  color: #f8f1df;
+}
+
+/* =========================
+   Bridge dari Story Flow
+   Dipakai sebagai layer gelap-keemasan saat album menghilang.
+========================= */
+
+.story-to-stage-bridge {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.story-bridge-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 54%,
+    rgba(216, 180, 95, 0.24) 0%,
+    rgba(42, 28, 12, 0.62) 38%,
+    rgba(7, 6, 4, 0.96) 100%
+  );
+  backdrop-filter: blur(8px);
+}
+
+.story-bridge-glow {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  width: min(760px, 78vw);
+  height: min(360px, 34vh);
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(243, 217, 139, 0.5) 0%,
+    rgba(216, 180, 95, 0.18) 34%,
+    rgba(7, 6, 4, 0) 72%
+  );
+  filter: blur(24px);
+  transform: translateX(-50%) scale(0.8);
+}
+
+/* =========================
+   Background panggung
+========================= */
+
+.peak-bg,
+.stage-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.peak-bg img,
+.stage-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  transform: translateY(8%) scale(1.08);
+  transform-origin: center bottom;
+  filter: brightness(0.58) saturate(0.96) contrast(1.06);
+  will-change: transform, opacity, filter;
+}
+
+/* =========================
+   Overlay gelap cinematic
+========================= */
+
+.peak-overlay,
+.stage-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 6, 4, 0.88) 0%,
+      rgba(7, 6, 4, 0.42) 34%,
+      rgba(7, 6, 4, 0.34) 58%,
+      rgba(7, 6, 4, 0.88) 100%
+    ),
+    radial-gradient(
+      circle at 50% 58%,
+      rgba(216, 180, 95, 0.18) 0%,
+      rgba(7, 6, 4, 0.04) 38%,
+      rgba(7, 6, 4, 0.46) 100%
+    );
+}
+
+/* =========================
+   Glow utama panggung
+========================= */
+
+.peak-glow,
+.stage-glow {
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  z-index: 3;
+  width: min(820px, 72vw);
+  height: min(420px, 38vh);
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 230, 150, 0.52) 0%,
+    rgba(216, 180, 95, 0.2) 34%,
+    rgba(7, 6, 4, 0) 72%
+  );
+  opacity: 0.8;
+  filter: blur(18px);
+  transform: translateX(-50%) scale(0.92);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* =========================
+   Cahaya kiri-kanan panggung
+========================= */
+
+.stage-light-beam {
+  position: absolute;
+  top: -18%;
+  z-index: 3;
+  width: 36vw;
+  height: 120vh;
+  pointer-events: none;
+  opacity: 0.24;
+  filter: blur(10px);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 230, 150, 0.48) 0%,
+    rgba(216, 180, 95, 0.16) 42%,
+    rgba(7, 6, 4, 0) 82%
+  );
+  mix-blend-mode: screen;
+}
+
+.stage-light-left {
+  left: 6%;
+  transform: rotate(18deg);
+  transform-origin: top center;
+}
+
+.stage-light-right {
+  right: 6%;
+  transform: rotate(-18deg);
+  transform-origin: top center;
+}
+
+/* =========================
+   Konten teks Akhirussanah
+========================= */
+
+.peak-content,
+.stage-content {
+  position: absolute;
+  left: 50%;
+  top: 43%;
+  z-index: 5;
+  width: min(900px, calc(100% - 80px));
+  margin: 0;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity, filter;
+}
+
+.stage-content .section-number {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: rgba(243, 217, 139, 0.9);
+  font-family: "Lora", serif;
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
+}
+
+.stage-content h2 {
+  margin: 0 0 18px;
+  color: #f3d98b;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(58px, 7vw, 104px);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 0 rgba(76, 45, 10, 0.95),
+    0 12px 34px rgba(0, 0, 0, 0.95),
+    0 0 22px rgba(216, 180, 95, 0.32);
+}
+
+.stage-content h2::after {
+  content: "";
+  display: block;
+  width: min(190px, 46vw);
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(243, 217, 139, 0.92),
+    transparent
+  );
+  opacity: 0.9;
+}
+
+.stage-content p {
+  max-width: 780px;
+  margin: 0 auto;
+  color: rgba(248, 241, 223, 0.9);
+  font-family: "Lora", serif;
+  font-size: clamp(14px, 1.25vw, 18px);
+  font-weight: 500;
+  line-height: 1.8;
+  text-shadow: 0 5px 22px rgba(0, 0, 0, 0.82);
+}
+
+/* =========================================================
+   PUNCAK ACARA SEBAGAI PANEL STORY FLOW
+   Dipakai ketika #puncak dimasukkan ke dalam .flow-story-track
+========================================================= */
+
+.peak-story-panel {
+  position: relative;
+  flex: 0 0 100vw !important;
+  width: 100vw !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+  padding: 0 !important;
+  overflow: hidden;
+  isolation: isolate;
+  background: #070604;
+  color: #f8f1df;
+  transform-origin: center center !important;
+}
+
+/* Matikan overlay/bayangan bawaan .flow-story-panel pada panel puncak. */
+.peak-story-panel::before,
+.peak-story-panel::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Pastikan background panggung mengisi penuh panel */
+.peak-story-panel .peak-bg,
+.peak-story-panel .stage-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.peak-story-panel .peak-bg picture,
+.peak-story-panel .stage-bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.peak-story-panel .peak-bg img,
+.peak-story-panel .stage-bg img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* Konten puncak harus tetap absolute, bukan mengikuti flow biasa */
+.peak-story-panel .peak-content,
+.peak-story-panel .stage-content {
+  position: absolute !important;
+  left: 50% !important;
+  top: 40% !important;
+  z-index: 5;
+  width: min(760px, calc(100% - 60px));
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+  transform: translate(-50%, -50%) !important;
+}
+
+@media (max-width: 600px) {
+  .peak-story-panel .peak-content,
+  .peak-story-panel .stage-content {
+    top: 40% !important;
+    width: min(315px, calc(100% - 56px)) !important;
+  }
+
+  .peak-story-panel .stage-content h2 {
+    max-width: 300px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    font-size: clamp(28px, 8.2vw, 38px) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.8px !important;
+  }
+
+  .peak-story-panel .stage-content p {
+    max-width: 285px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    font-size: 13.4px !important;
+    line-height: 1.82 !important;
+  }
+}
+
+/* =========================================================
+   DETAIL UNDANGAN / DETAIL SECTION
+   Tema: premium cream + gold, lebih ringan setelah stage gelap
+========================================================= */
+
+.detail-section {
+  position: relative;
+  z-index: 5;
+  min-height: auto;
+  padding: clamp(82px, 10vh, 112px) 24px;
+  overflow: hidden;
+  color: #173c2a;
+  background:
+    radial-gradient(
+      circle at 50% 8%,
+      rgba(243, 217, 139, 0.22) 0%,
+      rgba(216, 180, 95, 0.1) 30%,
+      rgba(248, 241, 223, 0) 58%
+    ),
+    radial-gradient(
+      circle at 50% 78%,
+      rgba(185, 139, 47, 0.08) 0%,
+      rgba(248, 241, 223, 0) 42%
+    ),
+    linear-gradient(180deg, #f8f1df 0%, #f1e3bd 48%, #ead6a6 100%);
+}
+
+/* Hilangkan vignette hijau/gelap yang terlalu berat */
+.detail-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(92, 60, 18, 0.06) 0%,
+      rgba(92, 60, 18, 0) 24%,
+      rgba(92, 60, 18, 0) 70%,
+      rgba(92, 60, 18, 0.08) 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 248, 232, 0.34) 0%,
+      rgba(255, 248, 232, 0) 62%
+    );
+}
+
+/* Glow emas sangat halus di belakang judul */
+.detail-section::after {
+  content: "";
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  z-index: 0;
+  width: min(560px, 82vw);
+  height: 240px;
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(243, 217, 139, 0.18) 0%,
+    rgba(216, 180, 95, 0.07) 42%,
+    rgba(248, 241, 223, 0) 76%
+  );
+  filter: blur(16px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.detail-section .section-heading,
+.detail-section .detail-card,
+.detail-section .button-group {
+  position: relative;
+  z-index: 2;
+}
+
+.detail-heading {
+  max-width: 720px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+/* Pengganti nomor section */
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #b98b2f;
+  font-family: "Lora", serif;
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.detail-heading h2 {
+  margin: 0 0 16px;
+  color: #123524;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(42px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.72),
+    0 8px 22px rgba(185, 139, 47, 0.1) !important;
+}
+
+.detail-heading h2::after {
+  content: "";
+  display: block;
+  width: min(140px, 40vw);
+  height: 1px;
+  margin: 18px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(185, 139, 47, 0.62),
+    transparent
+  );
+}
+
+.detail-heading p {
+  max-width: 560px;
+  margin: 0 auto;
+  color: rgba(23, 60, 42, 0.72);
+  font-family: "Lora", serif;
+  font-size: clamp(14.5px, 1.18vw, 17px);
+  line-height: 1.75;
+}
+
+/* Grid kartu detail */
+.detail-card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 980px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+/* Kartu detail */
+.detail-card > div {
+  position: relative;
+  overflow: hidden;
+  min-height: 148px;
+  padding: 28px 20px 26px;
+  border: 1px solid rgba(185, 139, 47, 0.28);
+  border-radius: 24px;
+  background: rgba(255, 248, 226, 0.88);
+  text-align: center;
+  box-shadow:
+    0 16px 34px rgba(92, 60, 18, 0.13),
+    0 2px 0 rgba(255, 255, 255, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(6px);
+  will-change: transform, opacity, filter;
+}
+
+.detail-card > div::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(216, 180, 95, 0.72),
+    transparent
+  );
+}
+
+/* Label kartu */
+.detail-card strong {
+  display: block;
+  margin-bottom: 12px;
+  color: #9a7108;
+  font-family: "Lora", serif;
+  font-size: clamp(11px, 0.95vw, 12.5px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+/* Isi kartu */
+.detail-card p {
+  margin: 0;
+  color: rgba(23, 60, 42, 0.82);
+  font-family: "Lora", serif;
+  font-size: clamp(14.5px, 1.18vw, 17px);
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+/* Tombol maps */
+.detail-button-group {
+  margin-top: 32px;
+}
+
+.detail-map-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  padding: 13px 28px;
+  text-align: center;
+  border: 1px solid rgba(255, 248, 232, 0.42);
+  background: linear-gradient(
+    135deg,
+    #f3d98b 0%,
+    #d8b45f 48%,
+    #9d7428 100%
+  ) !important;
+  color: #070604 !important;
+  box-shadow:
+    0 12px 28px rgba(92, 60, 18, 0.16),
+    0 0 0 4px rgba(216, 180, 95, 0.1) !important;
+}
+
+.detail-map-button:hover {
+  background: linear-gradient(
+    135deg,
+    #ffe8a4 0%,
+    #d8b45f 50%,
+    #b9892f 100%
+  ) !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 34px rgba(92, 60, 18, 0.22),
+    0 0 0 5px rgba(216, 180, 95, 0.14) !important;
+}
+
+/* =========================================================
+   AGENDA / SUSUNAN ACARA
+   Tema: cream-gold hangat, selaras dengan Detail Undangan
+========================================================= */
+
+.agenda-section {
+  position: relative;
+  z-index: 5;
+  padding: clamp(82px, 10vh, 112px) 24px;
+  overflow: hidden;
+  color: #173c2a;
+  background:
+    radial-gradient(
+      circle at 50% 8%,
+      rgba(243, 217, 139, 0.14) 0%,
+      rgba(216, 180, 95, 0.06) 34%,
+      rgba(248, 241, 223, 0) 62%
+    ),
+    linear-gradient(180deg, #ead6a6 0%, #efdeb2 18%, #f4e8c9 48%, #f8f1df 100%);
+}
+
+.agenda-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(92, 60, 18, 0.06) 0%,
+    rgba(92, 60, 18, 0) 26%,
+    rgba(92, 60, 18, 0) 72%,
+    rgba(92, 60, 18, 0.07) 100%
+  );
+}
+
+.agenda-section::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 120px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(234, 214, 166, 0.95) 0%,
+    rgba(234, 214, 166, 0.42) 42%,
+    rgba(234, 214, 166, 0) 100%
+  );
+}
+
+.agenda-section .section-heading,
+.agenda-section .timeline {
+  position: relative;
+  z-index: 2;
+}
+
+/* Heading */
+.agenda-heading {
+  max-width: 740px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.agenda-heading h2 {
+  margin: 0 0 16px;
+  color: #123524;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(42px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.72),
+    0 8px 22px rgba(185, 139, 47, 0.1) !important;
+}
+
+.agenda-heading h2::after {
+  content: "";
+  display: block;
+  width: min(140px, 40vw);
+  height: 1px;
+  margin: 18px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(185, 139, 47, 0.62),
+    transparent
+  );
+}
+
+.agenda-heading p {
+  max-width: 590px;
+  margin: 0 auto;
+  color: rgba(23, 60, 42, 0.72);
+  font-family: "Lora", serif;
+  font-size: clamp(14.5px, 1.18vw, 17px);
+  line-height: 1.75;
+}
+
+/* Timeline wrapper */
+.timeline {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto;
+  padding-left: 46px;
+}
+
+/* Garis dasar timeline */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 15px;
+  width: 2px;
+  border-radius: 999px;
+  background: rgba(185, 139, 47, 0.2);
+}
+
+/* Garis animasi timeline, dikontrol JS */
+.timeline-line {
+  position: absolute;
+  top: 6px;
+  left: 15px;
+  z-index: 1;
+  width: 2px;
+  height: calc(100% - 12px);
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(216, 180, 95, 0.1),
+    rgba(216, 180, 95, 0.95),
+    rgba(216, 180, 95, 0.1)
+  );
+  transform: scaleY(0);
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+/* Card agenda */
+.timeline-item {
+  position: relative;
+  margin-bottom: 15px;
+  padding: 20px 24px;
+  border: 1px solid rgba(185, 139, 47, 0.22);
+  border-radius: 22px;
+  background: rgba(255, 250, 235, 0.94);
+  box-shadow:
+    0 12px 28px rgba(92, 60, 18, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.52),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(6px);
+  will-change: transform, opacity, filter;
+}
+
+/* Titik timeline */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: -40px;
+  z-index: 3;
+  width: 13px;
+  height: 13px;
+  border: 3px solid #f8f1df;
+  border-radius: 999px;
+  background: #d8b45f;
+  box-shadow: 0 0 0 4px rgba(216, 180, 95, 0.22);
+}
+
+/* Jam acara */
+.timeline-item span {
+  display: block;
+  margin-bottom: 6px;
+  color: #9a7108;
+  font-family: "Lora", serif;
+  font-size: clamp(12px, 1vw, 13.5px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 1.9px;
+  text-transform: uppercase;
+}
+
+/* Nama kegiatan */
+.timeline-item p {
+  margin: 0;
+  color: rgba(23, 60, 42, 0.84);
+  font-family: "Lora", serif;
+  font-size: clamp(14.5px, 1.18vw, 17px);
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+/* State aktif dari JS */
+.timeline-item.is-active {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 42px rgba(92, 60, 18, 0.16),
+    0 0 0 1px rgba(216, 180, 95, 0.18);
+}
+
+.timeline-item.is-active::before {
+  box-shadow:
+    0 0 0 4px rgba(216, 180, 95, 0.28),
+    0 0 24px rgba(216, 180, 95, 0.42);
+}
+
+/* =========================================================
+   PESAN & DOA
+   Dark gold glass style - clean, formal, premium
+========================================================= */
+
+.doa-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(86px, 11vh, 120px) 24px;
+  color: #f8f1df;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(216, 180, 95, 0.18) 0%,
+      rgba(216, 180, 95, 0.08) 28%,
+      rgba(7, 6, 4, 0) 58%
+    ),
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(243, 217, 139, 0.08) 0%,
+      rgba(243, 217, 139, 0) 34%
+    ),
+    linear-gradient(180deg, #070604 0%, #0b100d 42%, #071b12 100%);
+}
+
+.doa-section::before {
+  content: "";
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  z-index: 0;
+  width: min(720px, 92vw);
+  height: min(540px, 76vw);
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(216, 180, 95, 0.15) 0%,
+    rgba(216, 180, 95, 0.06) 40%,
+    rgba(7, 6, 4, 0) 74%
+  );
+  filter: blur(20px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.doa-section::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 0;
+  height: 48%;
+  background:
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(216, 180, 95, 0.12) 0%,
+      rgba(216, 180, 95, 0.05) 34%,
+      rgba(7, 27, 18, 0) 68%
+    ),
+    linear-gradient(180deg, rgba(7, 27, 18, 0) 0%, rgba(4, 16, 11, 0.66) 100%);
+  pointer-events: none;
+}
+
+.doa-section .section-heading,
+.doa-form,
+.form-status,
+.doa-count,
+.message-list,
+.load-more-messages {
+  position: relative;
+  z-index: 1;
+}
+
+.doa-count {
+  max-width: 620px;
+  margin: 0 auto 22px;
+  color: rgba(248, 241, 223, 0.78);
+  font-family: "Lora", serif;
+  font-size: clamp(14px, 1vw, 15.5px);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.doa-count strong {
+  color: #f3d98b;
+  font-weight: 700;
+}
+
+.doa-count[hidden] {
+  display: none;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+/* =========================
+   Heading
+========================= */
+
+.doa-heading {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.doa-heading .section-kicker {
+  color: #d8b45f;
+}
+
+.doa-heading h2 {
+  margin: 0 0 16px;
+  color: #f3d98b;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1;
+  text-shadow:
+    0 2px 0 rgba(74, 47, 11, 0.72),
+    0 12px 30px rgba(0, 0, 0, 0.5),
+    0 0 18px rgba(216, 180, 95, 0.14) !important;
+}
+
+.doa-heading h2::after {
+  content: "";
+  display: block;
+  width: min(140px, 40vw);
+  height: 1px;
+  margin: 18px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(216, 180, 95, 0.72),
+    transparent
+  );
+}
+
+.doa-heading p {
+  max-width: 580px;
+  margin: 0 auto;
+  color: rgba(248, 241, 223, 0.78);
+  font-family: "Lora", serif;
+  font-size: clamp(14.5px, 1.15vw, 17px);
+  line-height: 1.76;
+}
+
+/* =========================
+   Form Card
+========================= */
+
+.doa-form {
+  display: grid;
+  gap: 20px;
+  max-width: 620px;
+  margin: 0 auto 26px;
+  padding: clamp(26px, 4vw, 34px);
+  border: 1px solid rgba(216, 180, 95, 0.24);
+  border-radius: 28px;
+  background: linear-gradient(
+    145deg,
+    rgba(34, 31, 27, 0.92) 0%,
+    rgba(18, 17, 15, 0.92) 44%,
+    rgba(8, 11, 10, 0.94) 100%
+  );
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 0 1px rgba(216, 180, 95, 0.08);
+  backdrop-filter: blur(12px);
+  will-change: transform, opacity, filter;
+}
+
+.doa-field {
+  display: grid;
+  gap: 8px;
+}
+
+.doa-field label {
+  color: rgba(243, 217, 139, 0.78);
+  font-family: "Lora", serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.doa-form input,
+.doa-form textarea {
+  width: 100%;
+  padding: 8px 0 12px;
+  border: none;
+  border-bottom: 1px solid rgba(216, 180, 95, 0.52);
+  border-radius: 0;
+  background: transparent;
+  color: #f8f1df;
+  font-family: "Lora", serif;
+  font-size: 16px;
+  line-height: 1.6;
+  outline: none;
+  box-shadow: none;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.doa-form input::placeholder,
+.doa-form textarea::placeholder {
+  color: rgba(248, 241, 223, 0.38);
+}
+
+.doa-form input:focus,
+.doa-form textarea:focus {
+  border-color: #f3d98b;
+  transform: translateY(-1px);
+}
+
+.doa-form textarea {
+  min-height: 124px;
+  resize: vertical;
+}
+
+.doa-submit-button,
+.doa-form button,
+.doa-form .main-button {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  margin-top: 8px;
+  padding: 14px 28px;
+  border: 1px solid rgba(243, 217, 139, 0.28);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #c79421 0%, #ddb85e 48%, #a87819 100%);
+  color: #fff9ea;
+  font-family: "Lora", serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  box-shadow:
+    0 14px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.doa-submit-button:hover,
+.doa-form button:hover,
+.doa-form .main-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow:
+    0 18px 30px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.doa-submit-button:active,
+.doa-form button:active,
+.doa-form .main-button:active {
+  transform: translateY(0);
+}
+
+.form-status {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  color: #f2d98d;
+  font-family: "Lora", serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* =========================================================
+   MESSAGE LIST
+========================================================= */
+
+.message-list {
+  display: grid;
+  gap: 14px;
+  width: min(620px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.message-card {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: start;
+  width: 100%;
+  color: #f8f1df;
+  will-change: transform, opacity, filter;
+}
+
+.message-avatar {
+  display: grid;
+  place-items: center;
+  align-self: start;
+  width: 30px;
+  height: 30px;
+  margin-top: -1px;
+  border: 1px solid rgba(216, 180, 95, 0.42);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e6c774 0%, #c99d3f 58%, #9f741f 100%);
+  color: #1b1409;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.22),
+    0 0 0 2px rgba(216, 180, 95, 0.08);
+}
+
+.message-bubble {
+  min-width: 0;
+}
+
+.message-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.message-meta h3 {
+  min-width: 0;
+  max-width: calc(100% - 58px);
+  margin: 0;
+  overflow: hidden;
+  color: #f8f1df;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(17px, 1.2vw, 20px);
+  font-weight: 600;
+  line-height: 1.05;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.message-meta span {
+  flex: 0 0 auto;
+  color: rgba(248, 241, 223, 0.48);
+  font-family: "Lora", serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.message-card p {
+  margin: 0;
+  padding: 12px 15px;
+  border: 1px solid rgba(216, 180, 95, 0.16);
+  border-radius: 6px 14px 14px 14px;
+  background: linear-gradient(
+    145deg,
+    rgba(38, 35, 30, 0.96) 0%,
+    rgba(18, 18, 16, 0.96) 100%
+  );
+  border-color: rgba(216, 180, 95, 0.24);
+  color: rgba(248, 241, 223, 0.92);
+  font-family: "Lora", serif;
+  font-size: clamp(14px, 1vw, 15.5px);
+  line-height: 1.62;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.message-card:hover p {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.load-more-messages {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  border: 1px solid rgba(216, 180, 95, 0.34);
+  border-radius: 999px;
+  background: rgba(248, 241, 223, 0.06);
+  color: #f2d98d;
+  font-family: "Lora", serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.load-more-messages:hover {
+  background: rgba(216, 180, 95, 0.12);
+  border-color: rgba(216, 180, 95, 0.54);
+  transform: translateY(-1px);
+}
+
+.load-more-messages:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  transform: none;
+}
+
+.load-more-messages[hidden] {
+  display: none;
+}
+
+/* =========================
+   Closing Section
+========================= */
+
+.closing-section {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: clamp(78px, 11vh, 120px) 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(216, 180, 95, 0.18) 0%,
+      rgba(216, 180, 95, 0.07) 30%,
+      rgba(248, 241, 223, 0) 62%
+    ),
+    linear-gradient(180deg, #f8f1df 0%, #efe2bd 56%, #f8f1df 100%);
+  color: #173c2a;
+  text-align: center;
+}
+
+.closing-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: min(720px, 88vw);
+  height: min(720px, 88vw);
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(216, 180, 95, 0.12) 0%,
+    rgba(216, 180, 95, 0.05) 38%,
+    rgba(248, 241, 223, 0) 72%
+  );
+  filter: blur(12px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.closing-content {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 100%);
+  margin: 0 auto;
+}
+
+.closing-logo,
+.closing-content img {
+  width: clamp(92px, 9vw, 132px);
+  height: clamp(92px, 9vw, 132px);
+  margin: 0 auto 26px;
+  border: 5px solid rgba(190, 151, 73, 0.34);
+  border-radius: 999px;
+  object-fit: contain;
+  background: rgba(255, 248, 232, 0.56);
+  padding: 10px;
+  box-shadow:
+    0 14px 34px rgba(15, 81, 50, 0.09),
+    0 0 0 8px rgba(216, 180, 95, 0.06);
+}
+
+.closing-section .section-number {
+  margin-bottom: 16px;
+  color: #b98b2f;
+  font-family: "Lora", serif;
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.closing-content h2 {
+  max-width: 560px;
+  margin: 0 auto 18px;
+  color: #123524;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(22px, 2.1vw, 28px);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.closing-content > p,
+.closing-dua {
+  max-width: 620px;
+  margin: 0 auto;
+  color: rgba(23, 60, 42, 0.88);
+  font-family: "Lora", serif;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.85;
+}
+
+.closing-dua {
+  margin-top: 20px !important;
+}
+
+.closing-dua::before {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1px;
+  margin: 0 auto 20px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(185, 139, 47, 0.55),
+    transparent
+  );
+}
+
+.closing-signature {
+  display: grid;
+  gap: 5px;
+  margin-top: 30px;
+  color: #173c2a;
+}
+
+.closing-signature span {
+  padding-top: 10px;
+  color: #8a6a2c;
+  font-family: "Allura", cursive;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* =========================
+   Animations
+========================= */
+
+@keyframes coverFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+/* =========================================================
+   Desktop Khusus
+========================================================= */
+
+@media (min-width: 901px) {
+  /* =========================
+     Peak Section
+  ========================= */
+
+  .peak-section {
+    min-height: 105vh;
+    min-height: 105dvh;
+    height: 105vh;
+    height: 105dvh;
+  }
+
+  .peak-bg img {
+    object-position: center 62%;
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+  }
+
+  #puncak .peak-bg img,
+  #puncak .stage-bg img {
+    object-position: center center !important;
+  }
+}
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 900px) {
+  /* =========================
+     Story Flow Section
+  ========================= */
+
+  .flow-story-panel.text-left .flow-story-text,
+  .flow-story-panel.text-right .flow-story-text {
+    right: 36px;
+    left: auto;
+    width: min(420px, 42vw);
+    top: 48%;
+  }
+
+  .flow-story-text h2 {
+    font-size: clamp(42px, 7vw, 66px);
+  }
+
+  .flow-story-text p {
+    font-size: 16px;
+  }
+
+  /* =========================
+     Puncak Acara / Stage Reveal - Tablet
+     Untuk ukuran 601px sampai 900px
+  ========================= */
+
+  #puncak.peak-section,
+  #puncak.stage-reveal-section {
+    padding: 0 !important;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  #puncak .peak-bg picture,
+  #puncak .stage-bg picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #puncak .peak-bg img,
+  #puncak .stage-bg img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center bottom;
+    transform: translateY(4%) scale(1.1);
+  }
+
+  #puncak .peak-content,
+  #puncak .stage-content {
+    position: absolute !important;
+    left: 50% !important;
+    top: 41%;
+    width: min(620px, calc(100% - 48px));
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  #puncak .stage-content h2 {
+    font-size: clamp(46px, 9vw, 76px);
+  }
+
+  #puncak .stage-content p {
+    max-width: 560px;
+    font-size: 15.5px;
+    line-height: 1.72;
+  }
+
+  /* =========================
+   Detail Section - Tablet
+  ========================= */
+
+  .detail-card {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 680px;
+  }
+}
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+  /* =========================
+     Global Section
+  ========================= */
+
+  .section {
+    padding: 64px 18px;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .section-number {
+    margin-bottom: 10px;
+    font-size: 12.5px;
+    letter-spacing: 2px;
+  }
+
+  /* =========================
+     Buttons
+  ========================= */
+
+  .main-button,
+  .secondary-button {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .button-group {
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  /* =========================
+     Cover Modal
+  ========================= */
+  .cover-modal {
+    padding: 12px 10px 16px;
+    align-items: center;
+    justify-content: center;
+    background:
+      radial-gradient(
+        circle at 50% 44%,
+        rgba(243, 217, 139, 0.28) 0%,
+        rgba(216, 180, 95, 0.16) 24%,
+        rgba(7, 6, 4, 0.28) 48%,
+        rgba(7, 6, 4, 0.92) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(7, 6, 4, 0.82) 0%,
+        rgba(23, 16, 10, 0.44) 42%,
+        rgba(7, 6, 4, 0.94) 100%
+      ),
+      url("assets/hero-toga-bg-mobile.png") center / cover no-repeat;
+  }
+
+  .cover-modal::after {
+    content: "" !important;
+    display: block !important;
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(243, 217, 139, 0.32) 0%,
+        rgba(216, 180, 95, 0.16) 30%,
+        rgba(7, 6, 4, 0.08) 54%,
+        rgba(7, 6, 4, 0.42) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(7, 6, 4, 0.72) 0%,
+        rgba(7, 6, 4, 0.18) 36%,
+        rgba(216, 180, 95, 0.08) 50%,
+        rgba(7, 6, 4, 0.22) 66%,
+        rgba(7, 6, 4, 0.78) 100%
+      );
+  }
+
+  .cover-content {
+    max-width: 360px !important;
+    width: 100%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .cover-content::before {
+    width: 120vw !important;
+    height: 70vh !important;
+    border-radius: 999px !important;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(7, 6, 4, 0.72) 0%,
+      rgba(7, 6, 4, 0.62) 34%,
+      rgba(216, 180, 95, 0.16) 58%,
+      rgba(7, 6, 4, 0) 100%
+    ) !important;
+    filter: blur(18px) !important;
+  }
+
+  .cover-inner {
+    width: min(340px, 92vw) !important;
+    padding: 0 10px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+
+    /*
+      Kontrol posisi konten mobile:
+      0px = tengah
+      negatif = naik
+      positif = turun
+    */
+    transform: translateY(-18px) !important;
+  }
+
+  .cover-inner::before,
+  .cover-inner::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .cover-image {
+    width: 82px !important;
+    height: 82px !important;
+    padding: 6px !important;
+    margin-bottom: 20px !important;
+    border-color: rgba(216, 180, 95, 0.8) !important;
+    background: rgba(248, 241, 223, 0.92) !important;
+    box-shadow:
+      0 10px 26px rgba(0, 0, 0, 0.32),
+      0 0 0 6px rgba(216, 180, 95, 0.1) !important;
+  }
+
+  .guest-label {
+    margin-bottom: 10px !important;
+    color: rgba(248, 241, 223, 0.9) !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    text-shadow:
+      0 2px 10px rgba(0, 0, 0, 0.72),
+      0 0 16px rgba(216, 180, 95, 0.18) !important;
+  }
+
+  #guestName {
+    margin-bottom: 18px !important;
+    color: #fff7df !important;
+    font-size: clamp(23px, 7.2vw, 34px) !important;
+    line-height: 1.12 !important;
+    text-shadow:
+      0 2px 0 rgba(0, 0, 0, 0.45),
+      0 8px 26px rgba(0, 0, 0, 0.78),
+      0 0 16px rgba(216, 180, 95, 0.14) !important;
+  }
+
+  .intro-text {
+    max-width: 270px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    margin-bottom: 18px !important;
+    color: rgba(248, 241, 223, 0.9) !important;
+    font-size: 14px !important;
+    line-height: 1.72 !important;
+    text-align: center !important;
+    text-shadow:
+      0 2px 10px rgba(0, 0, 0, 0.72),
+      0 0 16px rgba(216, 180, 95, 0.18) !important;
+  }
+
+  .event-kicker {
+    margin-top: -2px !important;
+    margin-bottom: 0 !important;
+    color: #fff1bf !important;
+    font-family: "Great Vibes", cursive !important;
+    font-size: clamp(28px, 9vw, 40px) !important;
+    font-weight: 400 !important;
+    line-height: 0.95 !important;
+    letter-spacing: 0.3px !important;
+    text-transform: none !important;
+    text-shadow:
+      0 2px 0 rgba(0, 0, 0, 0.72),
+      0 8px 22px rgba(0, 0, 0, 0.95),
+      0 0 16px rgba(216, 180, 95, 0.32) !important;
+  }
+
+  .cover-content h2 {
+    margin-top: -2px !important;
+    margin-bottom: 6px !important;
+    color: #ffe9a3 !important;
+    font-size: clamp(42px, 13vw, 58px) !important;
+    line-height: 0.95 !important;
+    text-shadow:
+      0 2px 0 rgba(76, 45, 10, 0.95),
+      0 8px 22px rgba(0, 0, 0, 0.95),
+      0 0 18px rgba(216, 180, 95, 0.42) !important;
+  }
+
+  .school-name {
+    margin-bottom: 4px !important;
+    color: #fff7df !important;
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+    text-shadow:
+      0 4px 18px rgba(0, 0, 0, 0.78),
+      0 0 12px rgba(216, 180, 95, 0.18) !important;
+  }
+
+  .event-year {
+    margin-bottom: 24px !important;
+    color: rgba(243, 217, 139, 0.92) !important;
+    font-size: 12.5px !important;
+    text-shadow:
+      0 3px 14px rgba(0, 0, 0, 0.78),
+      0 0 12px rgba(216, 180, 95, 0.18) !important;
+  }
+
+  #coverModal .main-button {
+    min-width: 180px;
+    padding: 13px 24px;
+    margin-top: 0 !important;
+    background: linear-gradient(135deg, #ffe8a4, #d8b45f, #9d7428) !important;
+    color: #070604 !important;
+    font-size: 14px;
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.38),
+      0 0 0 4px rgba(216, 180, 95, 0.14),
+      0 0 22px rgba(216, 180, 95, 0.18) !important;
+  }
+
+  .ornament-top-left {
+    top: -20px !important;
+    left: -45px !important;
+    width: 230px !important;
+  }
+
+  .ornament-top-right {
+    top: -20px !important;
+    right: -45px !important;
+    width: 230px !important;
+  }
+
+  .ornament-bottom-left {
+    bottom: -120px !important;
+    left: -60px !important;
+    width: 150px !important;
+  }
+
+  .ornament-bottom-right {
+    bottom: -120px !important;
+    right: -60px !important;
+    width: 150px !important;
+  }
+
+  .cover-side-ornament {
+    display: block !important;
+    position: absolute;
+    z-index: 1 !important;
+    pointer-events: none;
+    user-select: none;
+    height: 36vh;
+    width: auto;
+    object-fit: contain;
+    opacity: 1;
+    animation: sideFloat 7s ease-in-out infinite;
+  }
+
+  .side-bottom {
+    left: 50%;
+    bottom: -190px;
+    top: auto;
+    transform: translateX(-50%);
+    will-change: transform;
+  }
+
+  .side-left {
+    left: -76px;
+    top: 46%;
+    transform: translateY(-50%);
+  }
+
+  .side-right {
+    right: -76px;
+    top: 46%;
+    transform: translateY(-50%);
+    animation-delay: 0.8s;
+  }
+
+  /* =========================
+     Memory Book Opening Scene - Mobile
+     Menggunakan gambar khusus portrait
+  ========================= */
+
+  .memory-book-scene {
+    background: #070604;
+  }
+
+  .book-ambient-glow {
+    left: 50%;
+    top: 45%;
+    width: 120vw;
+    height: 70vh;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(243, 217, 139, 0.14) 0%,
+      rgba(216, 180, 95, 0.08) 36%,
+      rgba(7, 6, 4, 0) 72%
+    );
+    filter: blur(20px);
+    transform: translate(-50%, -50%);
+  }
+
+  .memory-book-shell {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    transform: none;
+  }
+
+  .memory-book-cover {
+    content: url("assets/memory-book-cover-mobile.png");
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+    filter: brightness(0.92) saturate(1.04) contrast(1.04);
+  }
+
+  .memory-book-intro {
+    left: 50%;
+    top: 50%;
+    width: 230px;
+    height: 310px;
+    transform: translate(-50%, -50%);
+  }
+
+  .memory-book-intro .section-number {
+    top: -30px;
+    font-size: 12px;
+    line-height: 1.65;
+    letter-spacing: 3px;
+  }
+
+  .memory-title-ornament {
+    width: 142px;
+  }
+
+  .memory-title-ornament-top {
+    top: 68px;
+  }
+
+  .memory-title-ornament-bottom {
+    top: 172px;
+  }
+
+  .memory-book-intro h2 {
+    top: 142px;
+    max-width: 220px;
+    font-size: clamp(27px, 8.2vw, 34px);
+    line-height: 1.05;
+    letter-spacing: 2.6px;
+  }
+
+  .memory-book-meta {
+    bottom: -20px;
+  }
+
+  .memory-book-intro p {
+    margin: 0 0 8px;
+    font-size: 12px;
+    letter-spacing: 2.2px;
+  }
+
+  .memory-book-hint {
+    font-size: 10px;
+    line-height: 1.55;
+    letter-spacing: 1.2px;
+  }
+
+  /* =========================
+     Story Flow Section
+  ========================= */
+
+  .story-flow-section,
+  .story-flow-scene,
+  .flow-story-panel {
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+    padding: 0;
+  }
+
+  .story-flow-scene {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .flow-door {
+    top: -10%;
+    height: 120%;
+  }
+
+  .flow-narration {
+    position: absolute;
+    top: 43svh;
+    left: 50%;
+    bottom: auto;
+    z-index: 5;
+    width: calc(100% - 34px);
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+
+  .flow-narration h2 {
+    max-width: 350px;
+    margin-right: auto;
+    margin-bottom: clamp(10px, 2svh, 14px);
+    margin-left: auto;
+    font-size: clamp(36px, 11vw, 54px);
+    line-height: 1.07;
+  }
+
+  .flow-narration p {
+    max-width: 330px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: clamp(15px, 3.9vw, 16px);
+    line-height: 1.7;
+  }
+
+  .flow-story-bg img {
+    object-position: center bottom;
+    transform: scale(1.1);
+  }
+
+  .flow-story-panel.text-left .flow-story-overlay,
+  .flow-story-panel.text-right .flow-story-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(248, 241, 223, 0.96) 0%,
+      rgba(248, 241, 223, 0.86) 28%,
+      rgba(248, 241, 223, 0.52) 56%,
+      rgba(248, 241, 223, 0.18) 80%,
+      rgba(248, 241, 223, 0.04) 100%
+    );
+  }
+
+  .flow-story-text,
+  .flow-story-panel.text-left .flow-story-text,
+  .flow-story-panel.text-right .flow-story-text {
+    top: 15%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 32px;
+    transform: translateY(0);
+  }
+
+  .flow-story-text h2 {
+    max-width: 315px;
+    margin-bottom: 10px;
+    font-size: clamp(36px, 11vw, 48px);
+    line-height: 1;
+  }
+
+  .flow-story-text p {
+    max-width: 315px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .flow-story-text h2,
+  .flow-story-text p,
+  .flow-story-text .section-number {
+    text-shadow: 0 1px 10px rgba(248, 241, 223, 0.34);
+  }
+
+  .detail-card strong,
+  .timeline-item span {
+    font-size: 12.5px;
+    letter-spacing: 2px;
+  }
+
+  .closing-signature strong {
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  /* =========================================================
+   PUNCAK ACARA / STAGE REVEAL - Mobile
+   Tujuan:
+   - Menghapus padding global .section di mobile
+   - Memastikan background panggung full screen
+   - Memastikan teks tetap center dan tidak ketimpa style lama
+========================================================= */
+
+  .peak-section,
+  .stage-reveal-section {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+    padding: 0 !important;
+    overflow: hidden;
+    background: #070604;
+    color: #f8f1df;
+  }
+
+  .peak-bg,
+  .stage-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .peak-bg picture,
+  .stage-bg picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #puncak .peak-bg img,
+  #puncak .stage-bg img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center !important;
+    transform: none !important;
+    transform-origin: center bottom;
+    filter: brightness(0.58) saturate(0.98) contrast(1.04);
+  }
+
+  .peak-overlay,
+  .stage-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(7, 6, 4, 0.9) 0%,
+        rgba(7, 6, 4, 0.5) 28%,
+        rgba(7, 6, 4, 0.38) 52%,
+        rgba(7, 6, 4, 0.88) 100%
+      ),
+      radial-gradient(
+        circle at 50% 62%,
+        rgba(216, 180, 95, 0.2) 0%,
+        rgba(7, 6, 4, 0.08) 42%,
+        rgba(7, 6, 4, 0.58) 100%
+      );
+  }
+
+  .peak-glow,
+  .stage-glow {
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    z-index: 3;
+    width: 110vw;
+    height: 38vh;
+    opacity: 0.72;
+    border-radius: 999px;
+    filter: blur(18px);
+    transform: translateX(-50%) scale(0.92);
+    pointer-events: none;
+  }
+
+  .stage-light-beam {
+    position: absolute;
+    top: -24%;
+    z-index: 3;
+    width: 52vw;
+    height: 110vh;
+    opacity: 0.14;
+    filter: blur(12px);
+    pointer-events: none;
+  }
+
+  .stage-light-left {
+    left: -22%;
+    transform: rotate(16deg);
+  }
+
+  .stage-light-right {
+    right: -22%;
+    transform: rotate(-16deg);
+  }
+
+  .peak-content,
+  .stage-content {
+    position: absolute;
+    left: 50%;
+    top: 38%;
+    z-index: 5;
+    width: min(350px, calc(100% - 36px));
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+
+  .stage-content .section-number {
+    margin-bottom: 12px;
+    color: rgba(243, 217, 139, 0.9);
+    font-size: 11.5px;
+    line-height: 1.5;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+  }
+
+  .stage-content h2 {
+    margin: 0 0 14px;
+    color: #f3d98b;
+    font-size: clamp(24px, 9vw, 44px);
+    line-height: 0.96;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .stage-content h2::after {
+    width: 124px;
+    margin-top: 14px;
+  }
+
+  .stage-content p {
+    max-width: 318px;
+    margin: 0 auto;
+    color: rgba(248, 241, 223, 0.9);
+    font-size: 14px;
+    line-height: 1.68;
+  }
+
+  .story-bridge-glow {
+    bottom: 18%;
+    width: 110vw;
+    height: 34vh;
+  }
+
+  /* =========================
+   Detail Section - Mobile
+========================= */
+
+  .detail-section {
+    min-height: auto;
+    padding: 68px 18px 72px;
+  }
+
+  .detail-heading {
+    margin-bottom: 28px;
+  }
+
+  .section-kicker {
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 2.4px;
+  }
+
+  .detail-heading h2 {
+    margin-bottom: 14px;
+    font-size: clamp(32px, 9.2vw, 42px);
+    line-height: 1.02;
+  }
+
+  .detail-heading h2::after {
+    width: 110px;
+    margin-top: 14px;
+  }
+
+  .detail-heading p {
+    max-width: 315px;
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .detail-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 326px;
+  }
+
+  .detail-card > div {
+    min-height: auto;
+    padding: 22px 18px 21px;
+    border-radius: 21px;
+    border-color: rgba(185, 139, 47, 0.32);
+    background: rgba(255, 250, 235, 0.94);
+    box-shadow:
+      0 12px 26px rgba(92, 60, 18, 0.14),
+      0 1px 0 rgba(255, 255, 255, 0.48),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+  }
+
+  .detail-card strong {
+    margin-bottom: 8px;
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .detail-card p {
+    font-size: 14.5px;
+    line-height: 1.62;
+  }
+
+  .detail-button-group {
+    margin-top: 26px;
+  }
+
+  .detail-map-button {
+    min-width: 205px;
+    padding: 13px 24px;
+    font-size: 14px;
+  }
+
+  /* =========================
+   Agenda / Timeline - Mobile
+========================= */
+
+  .agenda-section {
+    padding: 68px 18px 72px;
+  }
+
+  .agenda-heading {
+    margin-bottom: 30px;
+  }
+
+  .agenda-heading h2 {
+    margin-bottom: 14px;
+    font-size: clamp(32px, 9.2vw, 42px);
+    line-height: 1.02;
+  }
+
+  .agenda-heading h2::after {
+    width: 110px;
+    margin-top: 14px;
+  }
+
+  .agenda-heading p {
+    max-width: 315px;
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .timeline {
+    max-width: 330px;
+    padding-left: 36px;
+  }
+
+  .timeline::before,
+  .timeline-line {
+    left: 15px;
+  }
+
+  .timeline-item::before {
+    top: 21px;
+    left: -30px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline-item span {
+    margin-bottom: 5px;
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 1.7px;
+  }
+
+  .timeline-item p {
+    font-size: 14.2px;
+    line-height: 1.62;
+  }
+
+  /* =========================
+   Pesan & Doa - Mobile
+========================= */
+
+  .doa-section {
+    padding: 72px 18px 78px;
+  }
+
+  .doa-section::before {
+    top: 8%;
+    width: 96vw;
+    height: 96vw;
+    filter: blur(14px);
+  }
+
+  .doa-heading {
+    margin-bottom: 30px;
+  }
+
+  .doa-heading h2 {
+    font-size: clamp(34px, 9.5vw, 42px);
+    line-height: 1.03;
+  }
+
+  .doa-heading h2::after {
+    width: 110px;
+    margin-top: 14px;
+  }
+
+  .doa-heading p {
+    max-width: 320px;
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .doa-form {
+    max-width: 330px;
+    gap: 18px;
+    padding: 24px 20px 22px;
+    border-radius: 24px;
+  }
+
+  .doa-field label {
+    font-size: 12px;
+  }
+
+  .doa-form input,
+  .doa-form textarea {
+    font-size: 15px;
+    padding: 7px 0 10px;
+  }
+
+  .doa-form textarea {
+    min-height: 112px;
+  }
+
+  .doa-submit-button,
+  .doa-form button,
+  .doa-form .main-button {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 22px;
+    font-size: 15px;
+    border-radius: 11px;
+  }
+
+  .doa-count {
+    max-width: 320px;
+    margin-bottom: 20px;
+    font-size: 13.8px;
+    line-height: 1.65;
+  }
+
+  .form-status {
+    max-width: 320px;
+    font-size: 14px;
+  }
+
+  .message-list {
+    gap: 14px;
+    width: min(100%, 330px);
+    max-width: 330px;
+  }
+
+  .message-card {
+    grid-template-columns: 30px minmax(0, 1fr);
+    column-gap: 9px;
+  }
+
+  .message-avatar {
+    width: 28px;
+    height: 28px;
+    margin-top: -1px;
+    font-size: 15px;
+  }
+
+  .message-meta {
+    gap: 8px;
+  }
+
+  .message-meta h3 {
+    max-width: calc(100% - 48px);
+    font-size: clamp(16px, 4.5vw, 19px);
+  }
+
+  .message-meta span {
+    font-size: 10.5px;
+  }
+
+  .message-card p {
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.56;
+    border-radius: 5px 10px 10px 10px;
+  }
+
+  .load-more-messages {
+    margin-top: 18px;
+    padding: 10px 18px;
+    font-size: 13.5px;
+  }
+
+  /* =========================
+     Closing Section
+  ========================= */
+
+  .closing-section {
+    min-height: 100svh;
+    padding: 68px 18px;
+  }
+
+  .closing-content {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .closing-logo,
+  .closing-content img {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 22px;
+    border-width: 4px;
+    padding: 9px;
+  }
+
+  .closing-section .section-number {
+    margin-bottom: 14px;
+    font-size: 11px;
+    letter-spacing: 2.6px;
+  }
+
+  .closing-content h2 {
+    max-width: 300px;
+    margin-bottom: 16px;
+    font-size: clamp(22px, 6.4vw, 27px);
+    line-height: 1.12;
+  }
+
+  .closing-content > p,
+  .closing-dua {
+    max-width: 320px;
+    font-size: 14.5px;
+    line-height: 1.78;
+  }
+
+  .closing-dua {
+    margin-top: 18px !important;
+  }
+
+  .closing-dua::before {
+    width: 96px;
+    margin-bottom: 18px;
+  }
+
+  .closing-signature {
+    margin-top: 26px;
+  }
+
+  .closing-signature span {
+    padding-top: 8px;
+    font-size: clamp(26px, 8vw, 34px);
+    line-height: 1;
+  }
+}
+
+/* =========================================================
+   Story Flow - Page Flip Mode
+   Aktif saat JS menambahkan class .is-flipbook ke .flow-story-track.
+   Tujuan: mengganti mode horizontal slide menjadi transisi halaman album.
+========================================================= */
+
+.flow-story-track.is-flipbook {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  perspective: 1800px;
+  transform-style: preserve-3d;
+  will-change: opacity;
+}
+
+.flow-story-track.is-flipbook .flow-story-panel {
+  position: absolute;
+  inset: 0;
+  flex: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+
+.flow-story-track.is-flipbook .flow-story-panel:not(.peak-story-panel)::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 9;
+  width: 20%;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(63, 40, 16, 0.28),
+    rgba(63, 40, 16, 0.1),
+    transparent
+  );
+  transition: opacity 0.25s ease;
+}
+
+.flow-story-track.is-flipbook
+  .flow-story-panel:not(.peak-story-panel).is-flipping::before {
+  opacity: 1;
+}
+
+/* Overlay tepi halaman khusus saat mode flipbook aktif. */
+.flow-story-track.is-flipbook .flow-story-panel:not(.peak-story-panel)::after {
+  content: "";
+  z-index: 8;
+  background: linear-gradient(
+    90deg,
+    rgba(82, 52, 18, 0.22) 0%,
+    rgba(82, 52, 18, 0.08) 3%,
+    rgba(248, 241, 223, 0) 12%,
+    rgba(248, 241, 223, 0) 86%,
+    rgba(82, 52, 18, 0.08) 96%,
+    rgba(82, 52, 18, 0.18) 100%
+  );
+}
+
+.flow-story-track.is-flipbook .activity-journal-page,
+.flow-story-track.is-flipbook .flow-story-bg,
+.flow-story-track.is-flipbook .flow-story-overlay,
+.flow-story-track.is-flipbook .flow-story-text {
+  backface-visibility: hidden;
+}
+
+/* Jarak tambahan agar foto mobile tidak terlalu mepet ke teks. */
+@media (max-width: 768px) {
+  .flow-story-track.is-flipbook {
+    perspective: 1300px;
+  }
+
+  .memory-activity-panel .activity-photo-card {
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .memory-activity-panel .activity-photo-card {
+    margin-top: 16px;
+  }
+}
+
+/* =========================
+   Floating Music Button
+========================= */
+
+.music-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9998;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(216, 180, 95, 0.55);
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #0f6841, #0a4d31);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 28px rgba(13, 90, 57, 0.28),
+    0 0 0 4px rgba(216, 180, 95, 0.1);
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.music-toggle:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 16px 34px rgba(13, 90, 57, 0.36),
+    0 0 0 5px rgba(216, 180, 95, 0.14);
+}
+
+.music-toggle.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.music-toggle.is-playing {
+  animation: musicPulse 1.8s ease-in-out infinite;
+}
+
+.music-toggle.is-muted {
+  background: linear-gradient(135deg, #8a6a2c, #6e501d);
+}
+
+.music-toggle svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+#musicIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes musicPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* =========================================================
+   Mobile Layar Pendek
+========================================================= */
+
+@media (max-width: 600px) and (max-height: 700px) {
+  /* =========================
+     Story Flow Section
+  ========================= */
+
+  .flow-narration {
+    top: 39svh;
+  }
+
+  /* =========================
+     Backsound Music Toggle
+  ========================= */
+  .music-toggle {
+    right: 14px;
+    bottom: 14px;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+}
+
+/* =========================================================
+   Mobile Layar Tinggi
+========================================================= */
+
+@media (max-width: 600px) and (min-height: 720px) {
+  /* =========================
+     Closing Section
+  ========================= */
+
+  .closing-section {
+    align-items: flex-start;
+    padding-top: 76px;
+    padding-bottom: 56px;
+  }
+}
+
+/* =========================================================
+   Mobile Layar Sangat Tinggi
+========================================================= */
+
+@media (max-width: 600px) and (min-height: 760px) {
+  /* =========================
+     Cover modal
+  ========================= */
+  .cover-inner {
+    transform: translateY(-24px) !important;
+  }
+
+  .cover-image {
+    width: 86px !important;
+    height: 86px !important;
+    margin-bottom: 28px !important;
+  }
+
+  .guest-label {
+    margin-bottom: 12px !important;
+  }
+
+  #guestName {
+    margin-bottom: 28px !important;
+  }
+
+  .intro-text {
+    margin-bottom: 10px !important;
+    color: rgba(255, 247, 223, 0.96) !important;
+    font-size: 14.8px !important;
+    line-height: 1.62 !important;
+    text-shadow:
+      0 2px 0 rgba(0, 0, 0, 0.55),
+      0 7px 18px rgba(0, 0, 0, 0.92) !important;
+  }
+
+  .cover-content h2 {
+    margin-bottom: 10px !important;
+  }
+
+  .school-name {
+    margin-bottom: 40px !important;
+  }
+
+  /* =========================
+     Story Flow Section
+  ========================= */
+
+  .flow-narration {
+    top: 43svh;
+  }
+}
+
+/* =========================================================
+   Mobile Side Ornament Animation
+========================================================= */
+
+@keyframes sideFloat {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -8px;
+  }
+}
+
+/* =========================================================
+   FINAL OVERRIDE - PUNCAK SEBAGAI PANEL STORY FLOW
+
+   Tujuan:
+   - #puncak diperlakukan sebagai panel panggung, bukan halaman jurnal.
+   - Efek flipbook hanya berlaku untuk panel cerita/kegiatan.
+   - Overlay tepi halaman, shadow lipatan, dan padding section tidak bocor ke #puncak.
+
+   HTML yang diharapkan:
+   <article
+     id="puncak"
+     class="flow-story-panel peak-story-panel peak-section stage-reveal-section"
+   >
+========================================================= */
+
+/* Bridge dibuat tanpa blur agar transisi ke panggung terasa muncul dari dalam, bukan fade-up. */
+.story-to-stage-bridge,
+.story-bridge-veil {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Kunci ukuran dan posisi #puncak saat berada di dalam track flipbook. */
+.flow-story-track.is-flipbook .peak-story-panel,
+#puncak.peak-story-panel {
+  position: absolute !important;
+  inset: 0 !important;
+  flex: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100svh !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background: #070604 !important;
+  color: #f8f1df !important;
+  transform-origin: center center !important;
+}
+
+/* Matikan total overlay, shadow, dan lipatan halaman flipbook pada panel puncak. */
+.flow-story-track.is-flipbook .peak-story-panel::before,
+.flow-story-track.is-flipbook .peak-story-panel::after,
+#puncak.peak-story-panel::before,
+#puncak.peak-story-panel::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Pastikan background panggung selalu full screen. */
+.flow-story-track.is-flipbook .peak-story-panel .peak-bg,
+.flow-story-track.is-flipbook .peak-story-panel .stage-bg,
+#puncak .peak-bg,
+#puncak .stage-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+.flow-story-track.is-flipbook .peak-story-panel .peak-bg picture,
+.flow-story-track.is-flipbook .peak-story-panel .stage-bg picture,
+#puncak .peak-bg picture,
+#puncak .stage-bg picture {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.flow-story-track.is-flipbook .peak-story-panel .peak-bg img,
+.flow-story-track.is-flipbook .peak-story-panel .stage-bg img,
+#puncak .peak-bg img,
+#puncak .stage-bg img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: none !important;
+  transform-origin: center center !important;
+}
+
+/* Konten puncak tidak boleh mengikuti layout umum .section atau .flow-story-text. */
+.flow-story-track.is-flipbook .peak-story-panel .peak-content,
+.flow-story-track.is-flipbook .peak-story-panel .stage-content,
+#puncak .peak-content,
+#puncak .stage-content {
+  position: absolute !important;
+  left: 50% !important;
+  top: 40% !important;
+  z-index: 5 !important;
+  width: min(760px, calc(100% - 60px)) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Pastikan typography panggung menang dari typography global. */
+.flow-story-track.is-flipbook .peak-story-panel .stage-content h2,
+#puncak .stage-content h2 {
+  color: #f3d98b !important;
+  font-family: "Cormorant Garamond", serif !important;
+  text-shadow:
+    0 2px 0 rgba(76, 45, 10, 0.95),
+    0 12px 34px rgba(0, 0, 0, 0.95),
+    0 0 22px rgba(216, 180, 95, 0.32) !important;
+}
+
+@media (max-width: 600px) {
+  .flow-story-track.is-flipbook .peak-story-panel .peak-content,
+  .flow-story-track.is-flipbook .peak-story-panel .stage-content,
+  #puncak .peak-content,
+  #puncak .stage-content {
+    top: 40% !important;
+    width: min(315px, calc(100% - 56px)) !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  .flow-story-track.is-flipbook
+    .peak-story-panel
+    .stage-content
+    .section-number,
+  #puncak .stage-content .section-number {
+    display: block !important;
+    margin-bottom: 18px !important;
+    font-size: 10.5px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 2px !important;
+  }
+
+  .flow-story-track.is-flipbook .peak-story-panel .stage-content h2,
+  #puncak .stage-content h2 {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto 22px !important;
+    font-size: clamp(24px, 7.2vw, 34px) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.8px !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  .flow-story-track.is-flipbook .peak-story-panel .stage-content h2::after,
+  #puncak .stage-content h2::after {
+    width: 104px !important;
+    margin-top: 18px !important;
+  }
+
+  .flow-story-track.is-flipbook .peak-story-panel .stage-content p,
+  #puncak .stage-content p {
+    max-width: 285px !important;
+    margin: 0 auto !important;
+    padding: 0 6px !important;
+    font-size: 13.4px !important;
+    line-height: 1.82 !important;
+    text-align: center !important;
+  }
+}
+
+/* =========================================================
+   STORY ALBUM INTERACTIVE MODE
+   Dipakai saat cerita 01-17 dikontrol dengan swipe kiri/kanan.
+   JS akan menambahkan class .is-story-interactive
+   setelah album terbuka.
+========================================================= */
+
+.flow-story-track.is-flipbook.is-story-interactive {
+  pointer-events: auto !important;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.flow-story-track.is-flipbook.is-story-dragging {
+  cursor: grabbing;
+}
+
+/* Panel tidak perlu menangkap klik/touch langsung.
+   Swipe cukup ditangkap oleh .flow-story-track. */
+.flow-story-track.is-flipbook.is-story-interactive .flow-story-panel {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Puncak tetap tidak menjadi area swipe cerita. */
+.flow-story-track.is-flipbook.is-story-interactive .peak-story-panel {
+  pointer-events: none;
+}
+
+/* Saat masuk transisi menuju puncak, kontrol album disembunyikan. */
+.flow-story-track.is-stage-reveal .story-album-controls,
+.flow-story-track.is-stage-reveal .activity-page-hint {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* =========================================================
+   STORY ALBUM CONTROLS
+   Tombol dan hint untuk navigasi cerita 01-17
+========================================================= */
+
+.story-album-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: min(520px, calc(100% - 32px));
+  padding: 10px 12px;
+  border: 1px solid rgba(92, 66, 28, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 248, 232, 0.52);
+  box-shadow: 0 12px 30px rgba(68, 42, 16, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(8px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.flow-story-track.is-story-interactive .story-album-controls {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.flow-story-track.is-story-interactive {
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  overscroll-behavior: contain;
+}
+
+.story-nav-button {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(97, 69, 27, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 252, 241, 0.92);
+  color: rgba(47, 38, 29, 0.78);
+  font-family: "Lora", serif;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(68, 42, 16, 0.1);
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease,
+    background 0.22s ease;
+}
+
+.story-nav-button:hover {
+  background: rgba(255, 252, 241, 1);
+  transform: translateY(-1px);
+}
+
+.story-nav-button:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.story-nav-button.is-disabled,
+.story-nav-button:disabled {
+  opacity: 0.34;
+  cursor: default;
+  transform: none;
+}
+
+.story-album-status {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+  text-align: center;
+}
+
+.story-progress {
+  color: rgba(47, 38, 29, 0.66);
+  font-family: "Special Elite", monospace;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.7px;
+}
+
+.story-swipe-hint,
+.story-scroll-hint {
+  display: block;
+  color: rgba(47, 38, 29, 0.62);
+  font-family: "Kalam", "Patrick Hand", cursive;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.story-scroll-hint {
+  color: rgba(47, 38, 29, 0.46);
+  font-size: 11.5px;
+}
+
+/* Karena progress dan hint sudah ada di controls,
+   hint bawaan tiap panel bisa disembunyikan saat mode swipe aktif. */
+.flow-story-track.is-story-interactive
+  .memory-activity-panel
+  .activity-page-hint {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .story-album-controls {
+    bottom: 16px;
+    gap: 9px;
+    width: min(342px, calc(100% - 24px));
+    padding: 8px 9px;
+    border-radius: 24px;
+  }
+
+  .story-nav-button {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .story-progress {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .story-swipe-hint {
+    font-size: 12px;
+    line-height: 1.15;
+  }
+
+  .story-scroll-hint {
+    font-size: 10.5px;
+    line-height: 1.2;
+  }
+
+  .story-album-controls {
+    display: none !important;
+  }
+
+  .flow-story-track.is-story-interactive
+    .memory-activity-panel
+    .activity-page-hint {
+    opacity: 1 !important;
+    pointer-events: none !important;
+  }
+
+  .memory-activity-panel .activity-page-hint {
+    bottom: 14px;
+    width: calc(100% - 32px);
+    color: rgba(47, 38, 29, 0.58);
+    font-size: 10.5px;
+    line-height: 1.45;
+    letter-spacing: 0.5px;
+    text-align: center;
+    white-space: normal;
+  }
+}
